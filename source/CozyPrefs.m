@@ -40,6 +40,7 @@ static CozyPrefs *sharedInstance = nil;
 
 -(void)reloadPreferences {
 	NSLog(@"Preferences reloaded");
+	NSString *settingsFile = jbroot(@"/User/Library/Preferences/com.noisyflake.cozybadgesprefs.plist");
 	_settings = [[NSMutableDictionary alloc] initWithContentsOfFile:settingsFile];
 }
 

@@ -3,9 +3,6 @@
 
 static CozyPrefs *sharedInstance = nil;
 
-static NSString *settingsFile = jbroot(@"/User/Library/Preferences/com.noisyflake.cozybadgesprefs.plist");
-static NSString *defaultFile = jbroot(@"/Library/PreferenceBundles/CozyBadgesPrefs.bundle/defaults.plist");
-
 @implementation CozyPrefs
 
 +(id)sharedInstance {
@@ -23,6 +20,9 @@ static NSString *defaultFile = jbroot(@"/Library/PreferenceBundles/CozyBadgesPre
 	self = [super init];
 
 	if (self) {
+		NSString *settingsFile = jbroot(@"/User/Library/Preferences/com.noisyflake.cozybadgesprefs.plist");
+		NSString *defaultFile = jbroot(@"/Library/PreferenceBundles/CozyBadgesPrefs.bundle/defaults.plist");
+
 		// Copy the default preferences file if the actual preference file doesn't exist
 		NSFileManager *fileManager = [NSFileManager defaultManager];
 		if (![fileManager fileExistsAtPath:settingsFile]) {
